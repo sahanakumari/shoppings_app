@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoppings_app/screens/product_details.dart';
+import 'package:shoppings_app/models/dataproduct.dart';
 
 class Products extends StatefulWidget {
   @override
@@ -10,44 +11,50 @@ class _ProductsState extends State<Products> {
   var product_list = [
     {
       "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
+      "picture": "https://1099554485.rsc.cdn77.org/upload/products/black_terry_rayon_party_wear_blazer_1566018662as1764385_1.jpg",
       "old_price": 120,
       "price": 85,
     },
 
     {
       "name": "Suit",
-      "picture": "images/products/dress2.jpeg",
+      "picture": "https://www.dhresource.com/0x0s/f2-albu-g7-M01-1D-B3-rBVaSlpWzZiAKNibAAFir2GImjw121.jpg/2018-women-business-pant-suits-3-piece-formal.jpg",
       "old_price": 100,
       "price": 50,
     },
     {
       "name": "Heals",
-      "picture": "images/products/hills1.jpeg",
+      "picture": "https://image.shutterstock.com/image-photo/leopard-shoe-red-heal-isolated-260nw-27482185.jpg",
       "old_price": 100,
       "price": 50,
     },
     {
       "name": "Black suit",
-      "picture": "images/products/blazer2.jpeg",
+      "picture": "https://i.ytimg.com/vi/uD_V8vR2dTQ/maxresdefault.jpg",
       "old_price": 100,
       "price": 50,
     },
     {
       "name": "RedHeals",
-      "picture": "images/products/hills2.jpeg",
+      "picture": "https://img.pngio.com/red-shoes-png-vectors-psd-and-clipart-for-free-download-pngtree-red-shoes-png-260_303.png",
       "old_price": 100,
       "price": 50,
     },
     {
       "name": "fashskt",
-      "picture": "images/products/skt1.jpeg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYWKKqJ4fvXDWPQ1n4rJCg_lq4YW-rKkTgRg&usqp=CAU",
       "old_price": 100,
       "price": 50,
     },
     {
       "name": "pintskt",
-      "picture": "images/products/skt2.jpeg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-AWoRoGYM8IRs4z9uHFjacTMmH6OaBm6dgQ&usqp=CAU",
+      "old_price": 100,
+      "price": 50,
+    },
+    {
+      "name": "redDress",
+      "picture": "https://i.pinimg.com/originals/04/d9/c6/04d9c67a69652389c342e1e8e1f8b607.jpg",
       "old_price": 100,
       "price": 50,
     }
@@ -120,7 +127,7 @@ class Single_prod extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: Image.asset(
+                  child: Image.network(
                     prod_pricture,
                     fit: BoxFit.cover,
                   )),
