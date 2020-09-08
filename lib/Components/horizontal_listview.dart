@@ -1,3 +1,66 @@
+// import 'package:flutter/material.dart';
+// import 'package:shoppings_app/models/Category.dart';
+//
+// class HorizontalList extends StatelessWidget {
+//   final categoryList = [
+//     Category('images/cats/tshirt.png', 'shirt'),
+//     Category('images/cats/dress.png', 'dress'),
+//     Category('images/cats/jeans.png', 'pants'),
+//     Category('images/cats/formal.png', 'formal'),
+//     Category('images/cats/shoe.png', 'shoe'),
+//     Category('images/cats/accessories.png', 'necklace'),
+//   ];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       height:80.0,
+//       child: ListView.builder(
+//           shrinkWrap: true,
+//           scrollDirection: Axis.horizontal,
+//           itemCount: categoryList.length,
+//           itemBuilder: (context, index) {
+//             return Container(
+//               height:80.0,
+//               child: SingleCategory(categoryList[index]),
+//             );
+//           }),
+//     );
+//   }
+// }
+//
+// class SingleCategory extends StatelessWidget {
+//   final Category singlecategory;
+//
+//   SingleCategory(this.singlecategory);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.all(3.0),
+//       child: InkWell(
+//         onTap: () {},
+//         child: Container(
+//           width: 100.0,
+//           child: ListTile(
+//             title: Image.asset(
+//               singlecategory.imgLocation,
+//               width: 25.0,
+//               height: 50.0,
+//             ),
+//             subtitle: Container(
+//               alignment: Alignment.topCenter,
+//               child: Text(
+//                 singlecategory.imgCaption,
+//                 style: new TextStyle(fontSize: 14.0),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 import 'package:flutter/material.dart';
 
@@ -56,16 +119,16 @@ class Category extends StatelessWidget {
         child: Container(
           width: 100.0,
           child: ListTile(
-              title: Image.asset(
-                image_location,
-                width: 25.0,
-                height: 50.0,
-              ),
-              subtitle: Container(
-               alignment: Alignment.topCenter,
-                child: Text(image_cap,style: new TextStyle(fontSize: 14.0),),
+            title: Image.asset(
+              image_location,
+              width: 25.0,
+              height: 50.0,
+            ),
+            subtitle: Container(
+              alignment: Alignment.topCenter,
+              child: Text(image_cap,style: new TextStyle(fontSize: 14.0),),
 
-              ),
+            ),
           ),
         ),
       ),
