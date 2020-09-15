@@ -5,6 +5,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 //my own imports
 import 'package:shoppings_app/Components/horizontal_listview.dart';
 import 'package:shoppings_app/Components/products.dart';
+import 'package:shoppings_app/screens/Cart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,17 +20,20 @@ class _HomePageState extends State<HomePage> {
       child:  new Carousel(
         boxFit: BoxFit.cover,
         images: [
+          AssetImage('images/w1.jpeg'),
           AssetImage('images/w3.jpeg'),
           AssetImage('images/m1.jpeg'),
           AssetImage('images/c1.jpg'),
           AssetImage('images/w4.jpeg'),
           AssetImage('images/m2.jpg'),
+
         ],
         autoplay: true,
       animationCurve: Curves.fastOutSlowIn,
       animationDuration: Duration(milliseconds: 1000),
         dotSize: 4.0,
         indicatorBgPadding: 2.0,
+        dotBgColor: Colors.transparent,
       ),
     );
 
@@ -50,7 +54,8 @@ class _HomePageState extends State<HomePage> {
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              onPressed: () {})
+              onPressed: () { Navigator.push(context,MaterialPageRoute(builder: (context)=> new Cart()));
+              })
         ],
       ),
       drawer: new Drawer(
@@ -98,10 +103,12 @@ class _HomePageState extends State<HomePage> {
             ),
 
             InkWell(
-              onTap: (){},
+              onTap: (){
+                Navigator.push(context,MaterialPageRoute(builder: (contex)=>new Cart()));
+              },
               child: ListTile(
-                title: Text('Categoris'),
-                leading: Icon(Icons.dashboard,color: Colors.blue,),
+                title: Text('Shoppinng cart'),
+                leading: Icon(Icons.shopping_cart,color: Colors.blue,),
               ),
             ),
 
