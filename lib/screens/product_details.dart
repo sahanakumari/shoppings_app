@@ -1,20 +1,16 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shoppings_app/models/CartModel.dart';
 import 'package:shoppings_app/models/Product.dart';
 import 'package:shoppings_app/screens/HomePage.dart';
 
 class ProductDetails extends StatefulWidget {
-  final product_detail_name;
-  final product_detail_new_price;
-  final product_detail_old_price;
-  final product_detail_picture;
+ final Product product;
 
-  ProductDetails(
-      {this.product_detail_name,
-      this.product_detail_new_price,
-      this.product_detail_old_price,
-      this.product_detail_picture});
+  const ProductDetails({Key key, this.product}) : super(key: key);
+
+
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -51,13 +47,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: GridTile(
                   child: Container(
                     color: Colors.white,
-                    child: Image.network(widget.product_detail_picture),
+                    child: Image.network(widget.product.Picture),
                   ),
                   footer: new Container(
                     color: Colors.white70,
                     child: ListTile(
                       leading: new Text(
-                        widget.product_detail_name,
+                        widget.product.name,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16.0),
                       ),
@@ -65,14 +61,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                         children: <Widget>[
                           Expanded(
                               child: new Text(
-                            "\₹${widget.product_detail_old_price}",
+                            "\₹${widget.product.oldprice}",
                             style: TextStyle(
                                 color: Colors.grey,
                                 decoration: TextDecoration.lineThrough),
                           )),
                           Expanded(
                               child: new Text(
-                            "\₹${widget.product_detail_new_price}",
+                            "\₹${widget.product.price}",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, color: Colors.red),
                           )),
@@ -217,7 +213,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(5.0),
-                    child: Text(widget.product_detail_name),
+                    child: Text(widget.product.name),
                   )
                 ],
               ),
@@ -323,10 +319,7 @@ class Simlar_Single_prod extends StatelessWidget {
             child: InkWell(
               onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                   builder: (context) => new ProductDetails(
-                        product_detail_name: product.name,
-                        product_detail_old_price: product.oldprice,
-                        product_detail_new_price: product.price,
-                        product_detail_picture: product.picture,
+                        product: product,
                       ))),
               child: GridTile(
                   footer: Container(
@@ -351,7 +344,7 @@ class Simlar_Single_prod extends StatelessWidget {
                     ),
                   ),
                   child: Image.network(
-                    product.picture,
+                    product.Picture,
                     fit: BoxFit.cover,
                   )),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoppings_app/models/CartModel.dart';
+import 'package:shoppings_app/models/Product.dart';
 
 class CartProducts extends StatefulWidget {
   @override
@@ -9,22 +10,20 @@ class CartProducts extends StatefulWidget {
 class _CartProductsState extends State<CartProducts> {
   final cartproducts = [
     CartModel(
-      "RedHeals",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-tKZwtQLtKspfIV3q4dgEGMK0ItRmlxuHgg&usqp=CAU",
-      "100",
+      Product("Blazer","https://boutique.humbleandrich.com/wp-content/uploads/2019/04/Kiton-Fall-2019-Menswear-Collection-Featured-Image.jpg",0, 100),
       "7",
       "Red",
       "1",
     ),
 
     CartModel(
-      "pintskt",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-AWoRoGYM8IRs4z9uHFjacTMmH6OaBm6dgQ&usqp=CAU",
-      "200",
+     Product("Suit","https://i.pinimg.com/originals/e4/df/aa/e4dfaaf28c66028d1789917208bdabfd.jpg",0,100),
+
       "M",
       "Pink",
       "1",
     ),
+
 
   ];
 
@@ -53,11 +52,11 @@ class SingleCartProducts extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: new Image.network(
-          singlecartproducts.picture,
+          singlecartproducts.product.Picture,
           width: 80.0,
           height: 80.0,
         ),
-        title: new Text(singlecartproducts.name),
+        title: new Text(singlecartproducts.product.name),
         subtitle: new Column(
           children: <Widget>[
             new Row(
@@ -90,7 +89,7 @@ class SingleCartProducts extends StatelessWidget {
             new Container(
               alignment: Alignment.topLeft,
               child: Text(
-                "\₹${singlecartproducts.price}",
+                "\₹${singlecartproducts.product.price}",
                 style: TextStyle(
                     fontSize: 17.0,
                     fontWeight: FontWeight.bold,

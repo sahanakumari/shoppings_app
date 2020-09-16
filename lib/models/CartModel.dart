@@ -1,12 +1,14 @@
+import 'package:shoppings_app/models/Product.dart';
+
+
 class CartModel
 {
-  String name;
-  String picture;
-String price;
+  Product product;
   String size;
   String color;
  String quantity;
 
-  CartModel(this.name, this.picture, this.price, this.size, this.color,
-      this.quantity);
+  CartModel(this.product, this.size, this.color, this.quantity);
+
+
 }
