@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:shoppings_app/models/CartModel.dart';
 import 'package:shoppings_app/models/Product.dart';
 import 'package:shoppings_app/screens/HomePage.dart';
+import 'package:shoppings_app/Components/Products.dart';
 
 class ProductDetails extends StatefulWidget {
  final Product product;
 
-  const ProductDetails({Key key, this.product}) : super(key: key);
+  const ProductDetails({Key key,  this.product, Product}) : super(key: key);
 
 
 
@@ -24,10 +25,11 @@ class _ProductDetailsState extends State<ProductDetails> {
           elevation: 0.1,
           backgroundColor: Colors.red.shade900,
           title: InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => new HomePage()));
-            },
+            // onTap: () {
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => new HomePage()));
+            // },
+            onTap: ()=> Navigator.of(context).pushNamed('/home'),
             child: Text("Home"),
           ),
           actions: <Widget>[
@@ -250,12 +252,16 @@ class _ProductDetailsState extends State<ProductDetails> {
               Divider(),
               Padding
                 (padding: const EdgeInsets.all(4.0),
-               child: Text("Similar Products", ),),
+
+               child: Text("Similar Products", ),
+              ),
 
 
               Container(
                 height: 340.0,
                 child: SimilarProducts(),
+
+
               )
             ],
           ),
@@ -317,10 +323,12 @@ class Simlar_Single_prod extends StatelessWidget {
           tag: product.name,
           child: Material(
             child: InkWell(
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                  builder: (context) => new ProductDetails(
-                        product: product,
-                      ))),
+              // onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+              //     builder: (context) => new ProductDetails(
+              //           product: product,
+              //         ))),
+              onTap: () => Navigator.of(context).pushNamed('/productdetails',arguments: 'Product: Product'),
+
               child: GridTile(
                   footer: Container(
                     color: Colors.white70,
@@ -348,7 +356,8 @@ class Simlar_Single_prod extends StatelessWidget {
                     fit: BoxFit.cover,
                   )),
             ),
-          )),
+          ),
+    ),
     );
   }
 }

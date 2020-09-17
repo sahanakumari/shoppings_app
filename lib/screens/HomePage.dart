@@ -1,7 +1,7 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:shoppings_app/Components/horizontal_listview.dart';
-import 'package:shoppings_app/Components/products.dart';
+import 'package:shoppings_app/Components/Products.dart';
 import 'package:shoppings_app/screens/Cart.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,10 +50,13 @@ class _HomePageState extends State<HomePage> {
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => new Cart()));
-              })
+              // onPressed: () {
+              //   Navigator.push(context,
+              //       MaterialPageRoute(builder: (context) => new Cart()));
+              // }
+            onPressed: ()=> Navigator.of(context).pushNamed('/cart'),
+
+              )
         ],
       ),
       drawer: new Drawer(
@@ -86,7 +89,9 @@ class _HomePageState extends State<HomePage> {
               MenuOption(
               label: 'Home',
               icon: Icons.home,
-              ontap: () {},
+              //ontap: () {},
+                ontap: ()=> Navigator.of(context).pushNamed('/home'),
+                //ontap: ()=> Navigator.of(context).pushNamed('/cart'),
             ),
               MenuOption(
                 label: 'My Account',
@@ -106,10 +111,11 @@ class _HomePageState extends State<HomePage> {
               MenuOption(
                 label: 'Shopping Cart',
                 icon: Icons.shopping_cart,
-                ontap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (contex) => new Cart()));
-                },
+                // ontap: () {
+                //   Navigator.push(context,
+                //       MaterialPageRoute(builder: (contex) => new Cart()));
+                //},
+                ontap: ()=> Navigator.of(context).pushNamed('/cart'),
               ),
 
 

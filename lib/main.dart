@@ -1,4 +1,5 @@
 
+import 'package:shoppings_app/RouteGenerator.dart';
 import 'package:shoppings_app/screens/HomePage.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,9 @@ void main() {
     theme: ThemeData(
         primaryColor: Colors.red.shade900),
 
-     home: HomePage(),
+    // home: HomePage(),
+    initialRoute: '/home',
+    onGenerateRoute: RouteGenerator.generateRoute,
 
 
   ));
