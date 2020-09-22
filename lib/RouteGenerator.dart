@@ -6,33 +6,28 @@ import 'package:shoppings_app/screens/ProdutDetails.dart';
 import 'package:shoppings_app/Components/Products.dart';
 
 class RouteGenerator {
+  static const productDetails= '/Productdetails';
+  static const homepage='/home';
+  static const cartpage='/cart';
   static Route<dynamic> generateRoute(RouteSettings settings) {
+
     final args = settings.arguments;
 
+
     switch (settings.name) {
-      case '/home':
+      case homepage:
         return MaterialPageRoute(builder: (_) => HomePage());
-      case '/cart':
+      case cartpage:
         return MaterialPageRoute(builder: (_)=>Cart());
 
-      // case'/similarproduct':
-      //   //return MaterialPageRoute(builder: (_)=>ProductDetails());
-      //   if (args is Simlar_Single_prod)
-      //     {
-      //       return MaterialPageRoute(builder: (_)=>ProductDetails(Product: Product),);
-      //     }
-      //   return _errorRoute();
+      case productDetails:
 
-      case '/productdetails':
-       // return MaterialPageRoute(builder: (_) => ProductDetails());
-        if (args is ProductDetails) {
-
-          return MaterialPageRoute(builder: (_) => ProductDetails(
-            Product: Product),
+        {
+          return MaterialPageRoute(builder: (_) => ProductDetails(product: args),
           );
         }
 
-        return _errorRoute();
+
       default:
         return _errorRoute();
     }

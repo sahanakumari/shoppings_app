@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoppings_app/Navigation_Controller.dart';
 import 'package:shoppings_app/models/Product.dart';
 import 'package:shoppings_app/screens/ProdutDetails.dart';
 
@@ -75,13 +76,7 @@ class Single_prod extends StatelessWidget {
           tag: product.name,
           child: Material(
             child: InkWell(
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                  builder: (context) => new ProductDetails(
-                        product: product,
-                      ))),
-              //onTap: () => Navigator.of(context).pushNamed('/productdetails',arguments: 'Product: Product'),
-              //onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ProductDetails())),
-             // onTap: ()=> Navigator.of(context).pushNamed('/similarproduct',arguments:'Product: Product' ),
+              onTap: () => NavigationController.pushDetailPage(context,product),
 
               child: GridTile(
                   footer: Container(

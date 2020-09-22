@@ -6,10 +6,12 @@ import 'package:shoppings_app/models/Product.dart';
 import 'package:shoppings_app/screens/HomePage.dart';
 import 'package:shoppings_app/Components/Products.dart';
 
+import '../Navigation_Controller.dart';
+
 class ProductDetails extends StatefulWidget {
  final Product product;
 
-  const ProductDetails({Key key,  this.product, Product}) : super(key: key);
+  const ProductDetails({Key key,  this.product,}) : super(key: key);
 
 
 
@@ -29,10 +31,17 @@ class _ProductDetailsState extends State<ProductDetails> {
             //   Navigator.push(context,
             //       MaterialPageRoute(builder: (context) => new HomePage()));
             // },
-            onTap: ()=> Navigator.of(context).pushNamed('/home'),
-            child: Text("Home"),
+           // onTap: ()=> Navigator.of(context).pushNamed('/home'),
+            child: Text("Products"),
           ),
+
           actions: <Widget>[
+            new IconButton(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+              onPressed:()=> NavigationController.pushHome(context),),
             new IconButton(
                 icon: Icon(
                   Icons.search,
@@ -304,60 +313,10 @@ class _SimilarProductsState extends State<SimilarProducts> {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.all(4.0),
-            child: Simlar_Single_prod(productList[index]),
+            child: Single_prod(productList[index]),
           );
         });
   }
 }
 
-class Simlar_Single_prod extends StatelessWidget {
-  final Product product;
 
-  Simlar_Single_prod(this.product);
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Card(
-      child: Hero(
-          tag: product.name,
-          child: Material(
-            child: InkWell(
-              // onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-              //     builder: (context) => new ProductDetails(
-              //           product: product,
-              //         ))),
-              onTap: () => Navigator.of(context).pushNamed('/productdetails',arguments: 'Product: Product'),
-
-              child: GridTile(
-                  footer: Container(
-                    color: Colors.white70,
-                    child: ListTile(
-                      leading: Text(
-                        product.name,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      title: Text(
-                        "\₹${product.price}",
-                        style: TextStyle(
-                            color: Colors.red, fontWeight: FontWeight.w800),
-                      ),
-                      subtitle: Text(
-                        "\₹${product.oldprice}",
-                        style: TextStyle(
-                            color: Colors.black54,
-                            fontWeight: FontWeight.w800,
-                            decoration: TextDecoration.lineThrough),
-                      ),
-                    ),
-                  ),
-                  child: Image.network(
-                    product.Picture,
-                    fit: BoxFit.cover,
-                  )),
-            ),
-          ),
-    ),
-    );
-  }
-}

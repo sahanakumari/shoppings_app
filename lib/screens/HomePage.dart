@@ -2,6 +2,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:shoppings_app/Components/horizontal_listview.dart';
 import 'package:shoppings_app/Components/Products.dart';
+import 'package:shoppings_app/Navigation_Controller.dart';
 import 'package:shoppings_app/screens/Cart.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,7 +55,8 @@ class _HomePageState extends State<HomePage> {
               //   Navigator.push(context,
               //       MaterialPageRoute(builder: (context) => new Cart()));
               // }
-            onPressed: ()=> Navigator.of(context).pushNamed('/cart'),
+
+            onPressed:   ()=> NavigationController.pushCart(context),
 
               )
         ],
@@ -89,8 +91,11 @@ class _HomePageState extends State<HomePage> {
               MenuOption(
               label: 'Home',
               icon: Icons.home,
+
               //ontap: () {},
-                ontap: ()=> Navigator.of(context).pushNamed('/home'),
+               // ontap: ()=> Navigator.of(context).pushNamed('/home'),
+                ontap:()=> NavigationController.pushHome(context),
+
                 //ontap: ()=> Navigator.of(context).pushNamed('/cart'),
             ),
               MenuOption(
@@ -115,7 +120,8 @@ class _HomePageState extends State<HomePage> {
                 //   Navigator.push(context,
                 //       MaterialPageRoute(builder: (contex) => new Cart()));
                 //},
-                ontap: ()=> Navigator.of(context).pushNamed('/cart'),
+
+                ontap: ()=> NavigationController.pushCart(context),
               ),
 
 
@@ -136,12 +142,17 @@ class _HomePageState extends State<HomePage> {
 
             Divider(),
 
-            MenuOption(
-              label: 'Log Out',
-              icon: Icons.transit_enterexit,
-              //color: Colors.green,
-              ontap: () {},
-            ),
+
+            //  MenuOption(label: 'lo', ontap: null, icon: null) 'Log Out',
+            //   icon: Icons.transit_enterexit,
+            //   color: Colors.green,
+            //
+            //
+            //   ontap: () {},
+            //
+            // ),
+
+            MenuOption(label: 'Log Out', ontap: (){}, icon: Icons.transit_enterexit, color: Colors.green,)
           ],
         ),
       ),
@@ -180,24 +191,27 @@ class MenuOption extends StatelessWidget {
   final String label;
   final void Function() ontap;
   final  IconData icon;
+  final Color color;
 
 
 
-  MenuOption({@required this.label, @required this.ontap, @required this.icon});
+
+  MenuOption({@required this.label, @required this.ontap, @required this.icon,@required this.color});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+
       onTap: ontap,
       child: ListTile(
           title: Text(label),
           leading: Icon(
             icon,
-            color: Colors.blue,
-          )
+            color:Colors.blue,
+          ),
       ),
-
     );
+
 
 
 
