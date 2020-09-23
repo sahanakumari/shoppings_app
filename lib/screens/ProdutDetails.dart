@@ -41,7 +41,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   Icons.home,
                   color: Colors.white,
                 ),
-              onPressed:()=> NavigationController.pushHome(context),),
+              onPressed:()=> NavigationController.toHome(context),),
             new IconButton(
                 icon: Icon(
                   Icons.search,

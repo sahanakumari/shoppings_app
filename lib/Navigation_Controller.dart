@@ -21,4 +21,15 @@ class NavigationController{
   }
 
 
+
+  static void toHome(BuildContext context) {
+    Navigator.pushNamedAndRemoveUntil(
+    context,
+    RouteGenerator.homepage,
+    ModalRoute.withName(RouteGenerator.homepage),
+    );
+  }
+
+
+
 }
